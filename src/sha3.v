@@ -1,6 +1,6 @@
 
 
-// sha3.v - Modified from keccak.v
+// sha3.v - Modified
 
 
 
