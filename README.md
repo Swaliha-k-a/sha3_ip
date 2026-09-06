@@ -114,33 +114,33 @@ This design achieves lower LUT and flip-flop utilisation than both comparable pu
 
 **Hardware setup — Arty A7 running the design, live ILA capture on-screen:**
 
-![Hardware setup](images/hardware-setup.jpg)
+![Hardware setup](sha3_ip_images/hardware-setup.jpg)
 
 **Simulation — functional verification against test vectors:**
 
-![Simulation: "sha3" input](images/simulation-sha3-string.png)
+![Simulation: "sha3" input](sha3_ip_images/simulation-sha3-string.png)
 *Simulation waveform for input `"sha3"` — output hash matches the expected test vector.*
 
-![Simulation: empty string input](images/simulation-empty-string.png)
+![Simulation: empty string input](sha3_ip_images/simulation-empty-string.png)
 *Simulation waveform for an empty-string input — confirms correct edge-case handling.*
 
 **On-chip debugging — ILA and VIO, empty-string input, captured directly from hardware:**
 
-![ILA capture](images/ila-empty-string.png)
+![ILA capture](sha3_ip_images/ila-empty-string.png)
 *ILA waveform read back from the FPGA, matching the simulated result.*
 
-![VIO output](images/vio-empty-string.png)
+![VIO output](sha3_ip_images/vio-empty-string.png)
 *VIO dashboard showing the live output hash and status signals on hardware.*
 
 **Design & implementation reports:**
 
-![RTL Schematic](images/rtl-schematic.png)
+![RTL Schematic](sha3_ip_images/rtl-schematic.png)
 *Elaborated RTL schematic — padder, Keccak permutation core, and I/O registers.*
 
-![Power Analysis Report](images/power-report.png)
+![Power Analysis Report](sha3_ip_images/power-report.png)
 *Vivado power report: 0.171 W total on-chip power.*
 
-![Resource Utilization](images/resource-utilization.png)
+![Resource Utilization](sha3_ip_images/resource-utilization.png)
 *Post-implementation utilization: 29% LUT, 19% FF, on the Arty A7.*
 
 ## Repository Structure
@@ -179,6 +179,7 @@ sha3_ip/
 - Post-quantum-resistant primitive extensions
 
 ## Author
+Swaliha K A
 
 **Swaliha K A** 
 [LinkedIn](https://www.linkedin.com/in/swaliha-ka) · [GitHub](https://github.com/Swaliha-k-a) · swaliha12316@gmail.com
