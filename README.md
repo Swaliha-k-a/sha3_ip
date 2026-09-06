@@ -11,14 +11,14 @@ A FIPS 202-compliant SHA3-256 hash core implemented in Verilog HDL, targeting a 
 
 This project demonstrates practical experience with:
 
-- RTL design in Verilog HDL
+- RTL design in Verilog
 - Cryptographic hardware (Keccak / SHA-3 sponge construction)
 - FPGA synthesis, implementation, and timing/power analysis (Xilinx Vivado)
 - On-chip hardware debugging with ILA and VIO
 - Functional verification against known test vectors
 - Resource, power, and throughput trade-off analysis
 
-**Technologies:** `Verilog HDL` `FPGA` `Xilinx Vivado` `RTL Design` `ILA/VIO` `Cryptography`
+**Technologies:** `Verilog` `FPGA` `Xilinx Vivado` `RTL Design` `ILA/VIO` `Cryptography`
 
 ---
 
