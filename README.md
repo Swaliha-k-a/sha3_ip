@@ -54,13 +54,13 @@ Input (32-bit) → Padder → Buffer/MUX → Keccak Permutation (24 rounds:
 |---|---|---|
 | `clk` | 1 | System clock |
 | `reset` | 1 | Asynchronous reset |
-| `sha3input` | 32 | Input data to be hashed |
-| `inready` | 1 | Input data ready |
-| `islast` | 1 | Marks the last input block |
-| `bytenum` | 2 | Number of valid bytes in the current word |
-| `bufferfull` | 1 | Internal buffer full flag |
-| `sha3out` | 256 | Output hash value |
-| `outready` | 1 | Output hash ready |
+| `sha3_in` | 32 | Input data to be hashed |
+| `in_ready` | 1 | Input data ready |
+| `is_last` | 1 | Marks the last input block |
+| `byte_num` | 2 | Number of valid bytes in the current word |
+| `buffer_full` | 1 | Internal buffer full flag |
+| `sha3_out` | 256 | Output hash value |
+| `out_ready` | 1 | Output hash ready |
 
 ## Hardware & Tools
 
@@ -143,19 +143,30 @@ This design achieves lower LUT and flip-flop utilisation than both comparable pu
 ![Resource Utilization](sha3_ip_images/resource-utilization.png)
 *Post-implementation utilization: 29% LUT, 19% FF, on the Arty A7.*
 
+![Timing Summary](sha3_ip_images/timing_report.png)
+*Vivado timing summary: worst negative slack of 26.528 ns against a 33 ns constraint, confirming the 154.5 MHz max frequency with zero failing endpoints.*
+
 ## Repository Structure
 
 ```
 sha3_ip/
 ├── README.md
-├── LICENSE
 ├── src/
-│   └── (Verilog source files: sha3_core, keccak_permutation, padder, etc.)
-├── testbench/
-│   └── (simulation testbench + test vectors)
+│   ├── sha3.v
+│   ├── f_permutation.v
+│   ├── round.v
+│   ├── rconst.v
+│   ├── padder.v
+│   └── padder1.v
+├── sim/
+│   ├── test_sha3.v
+│   ├── test_f_permutation.v
+│   ├── test_padder.v
+│   ├── test_padder1.v
+│   └── test_rconst.v
 ├── constraints/
-│   └── (Arty A7 pin/timing constraints)
-└── images/
+│   └── sha3.xdc
+└── sha3_ip_images/
     ├── hardware-setup.jpg
     ├── simulation-sha3-string.png
     ├── simulation-empty-string.png
@@ -163,9 +174,9 @@ sha3_ip/
     ├── vio-empty-string.png
     ├── rtl-schematic.png
     ├── power-report.png
-    └── resource-utilization.png
+    ├── resource-utilization.png
+    └── timing_report.png
 ```
-*(Update the src/testbench/constraints paths to match your actual source layout.)*
 
 ## Engineering Notes
 
@@ -179,11 +190,9 @@ sha3_ip/
 - Post-quantum-resistant primitive extensions
 
 ## Author
-Swaliha K A
 
 **Swaliha K A** 
 [LinkedIn](https://www.linkedin.com/in/swaliha-ka) · [GitHub](https://github.com/Swaliha-k-a) · swaliha12316@gmail.com
-
 ## Suggested GitHub Topics
 
 `fpga` `verilog` `sha3` `keccak` `cryptography` `rtl-design` `xilinx-vivado` `hardware-security` `hdl`
